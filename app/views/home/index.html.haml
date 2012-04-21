@@ -1,4 +1,4 @@
-%h3 Home
-- current_user.facebook.get_connections("me", "music").each do |like|
-  - artist = Artist.find_or_create_by name: like["name"]
-  %p= "#{artist.name} - #{artist.familiarity}"
+- if current_user
+  - current_user.facebook.get_connections("me", "music").each do |like|
+    - artist = Artist.find_or_create_by name: like["name"]
+    %p= "#{artist.name} - #{artist.familiarity}"
