@@ -5,7 +5,11 @@ class User
   field :name, :type => String
   field :email, :type => String
   field :token, :type => String
+  field :facebook_music_likes, :type => Array
+  field :facebook_friend_ids, :type => Array
   attr_accessible :provider, :uid, :name, :email, :token
+
+  after_create :update_friends_and_music_likes
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -21,8 +25,17 @@ class User
     end
   end
 
+  def update_friends_and_music_likes
+    self.facebook_music_likes = get_music_likes
+    save!
+  end
+
   def facebook
     Koala::Facebook::API.new(token)
+  end
+
+  def get_music_likes
+    facebook.get_connections('me','music')
   end
 
 end
