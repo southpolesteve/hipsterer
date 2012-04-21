@@ -38,3 +38,6 @@ gem "omniauth", ">= 1.0.3"
 gem "omniauth-facebook"
 gem "bootstrap-sass", ">= 2.0.1"
 gem "simple_form"
+gem "pry-rails"
+gem 'koala'
+gem 'httparty'
