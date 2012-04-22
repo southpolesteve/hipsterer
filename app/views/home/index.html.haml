@@ -1,21 +1,32 @@
 .row
   .span7
-    .header
-      %h1 Are you hipster?
     - if params[:friend_id]
       - unless @friend_likes.size == 0
-        %h2
+        %h2.center
           = image_tag "http://graph.facebook.com/#{params[:friend_id]}/picture", :class => 'fbpicture'
-          = "#{@friend['name']} is"
+          = "#{@friend['name']}"
+          %br
           - if @percent > 0
             = "#{@percent}% MORE"
           - else
-            = "#{@percent}% LESS"
+            = "#{-@percent}% LESS"
           hipster than you
-        - @recommended.each do |like|
-          %p= "#{like['name']} #{like['familiarity']}"
+        %p
+          #{@friend['name']} likes these obscure bands. Maybe you should start listening to them too?
+          %ul
+            - @recommended.each do |like|
+              %li
+                %span.result-name= "#{like['name']}"
+                (
+                %span.vinyl-result Searching for vinyl...
+                )
+
+        = render "facebook"
       - else
-        %h2 Oh snap! Liking music on Facebook is way too mainstream for #{@friend['name']}. Best pick someone else.
+        %h2.lower Oh snap! Liking music on Facebook is way too mainstream for #{@friend['name']}. Best pick someone else.
+        = render "facebook"
+    - else
+      %h1.lower Compare your hipster cred by clicking on one of your friends profile photos
 
 
   .span5#friend-list

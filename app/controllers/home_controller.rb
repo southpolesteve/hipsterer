@@ -19,6 +19,11 @@ class HomeController < ApplicationController
     end
   end
 
+  def vinyl
+    @result = Discogs.vinyl?(params[:name])
+    render "vinyl", :layout => false
+  end
+
   def avg(array)
     array.map{|a| a['familiarity']}.sum/array.size
   end

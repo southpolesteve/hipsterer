@@ -54,6 +54,7 @@ h1 {
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  margin-top: 75px;
   h1{
     padding-top: 30px;
     width: 100%;
@@ -69,7 +70,7 @@ h1 {
 }
 
 .content {
-  min-height: 300px;
+  min-height: 305px;
 }
 
 footer {
@@ -77,6 +78,12 @@ footer {
   padding-top: 20px;
   border-top: #ccc solid 1px;
   margin-bottom: 20px;
+}
+
+h3.long-text{
+  margin-top: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .search {
@@ -96,6 +103,39 @@ img.rethink{
 .hero {
   text-align: center;
   h1{
+    width: 100%;
     text-align: center;
   }
+}
+
+h1.lower {
+  text-align:center;
+  margin-top: 100px;
+}
+
+h2.lower {
+  text-align:center;
+  margin-top: 100px;
+}
+
+h1.center {
+  text-align: center;
+}
+
+.like-box{
+  display: inline-block;
+  float: left;
+  width: 60px;
+}
+
+.like-text{
+  display: inline-block;
+  float: left;
+  margin-top: 2px;
+  width: 300px;
+}
+
+.like-area{
+  margin-top: 50px;
+  margin-left: 75px;
 }
