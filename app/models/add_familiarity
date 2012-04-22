@@ -1,0 +1,4 @@
+class AddFamiliarity
+  @queue = :update
+  
+end
