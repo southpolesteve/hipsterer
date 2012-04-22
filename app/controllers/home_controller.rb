@@ -15,6 +15,7 @@ class HomeController < ApplicationController
           @percent = (100 - (avg(@friend_likes)/avg(@user_likes))*100).to_i*2.abs
         end
       end
+      @friends = current_user.facebook_friends
     end
   end
 

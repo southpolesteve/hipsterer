@@ -1,8 +1,9 @@
-- if params[:friend_id]
-  .row
-  - unless @friend_likes.size == 0
-    .row
-      .span7
+.row
+  .span7
+    .header
+      %h1 Are you hipster?
+    - if params[:friend_id]
+      - unless @friend_likes.size == 0
         %h2
           = image_tag "http://graph.facebook.com/#{params[:friend_id]}/picture", :class => 'fbpicture'
           = "#{@friend['name']} is"
@@ -11,24 +12,19 @@
           - else
             = "#{@percent}% LESS"
           hipster than you
-    .row
-      .span7
         - @recommended.each do |like|
           %p= "#{like['name']} #{like['familiarity']}"
-  - else
-    .row
-      .span6.offset3
+      - else
         %h2 Oh snap! Liking music on Facebook is way too mainstream for #{@friend['name']}. Best pick someone else.
 
-#friend-list
-  .row
-    .span4.offset4
-      %input.search{ placeholder: "Start typing a friend's name"}
-  %ul.list
-    - current_user.facebook_friends.each do |friend|
-      %li
-        %a{ href: root_path(:friend_id => friend['id']), title: friend['name'],class: 'fbpicture'}
-          = image_tag "http://graph.facebook.com/#{friend['id']}/picture", :size => '45x45'
-        .name.hidden
-          = friend['name']
+
+  .span5#friend-list
+    %input.search{ placeholder: "Search your friends"}
+    %ul.list
+      - current_user.facebook_friends.each do |friend|
+        %li
+          %a{ href: root_path(:friend_id => friend['id']), title: friend['name'],class: 'fbpicture'}
+            = image_tag "http://graph.facebook.com/#{friend['id']}/picture", :size => '47x47'
+          .name.hidden
+            = friend['name']
 

@@ -1,8 +1,10 @@
 // Set the correct sprite paths
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+$gridColumnWidth: 55px;
+$gridGutterWidth: 15px;
+
 @import "bootstrap";
-@import "bootstrap-responsive";
 
 #friend-list ul{
   list-style-type:none;
@@ -16,12 +18,17 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
   }
 }
 
+body{
+  margin-top: 40px;
+}
+
 #friend-list input{
   font-size: 20px;
   height: 40px;
   text-align: center;
   margin-bottom: 20px;
-  width: 100%;
+  width: 295px;
+  margin-left: 15px;
 }
 
 h1 {
@@ -31,4 +38,61 @@ h1 {
 .nav-link {
   padding-top: 5px;
   float: right;
+}
+
+.login {
+  height: 100px;
+  width: 400px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-color: #1D4088;
+  color: white;
+  text-align:center;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  h1{
+    padding-top: 30px;
+    width: 100%;
+  }
+  &:hover {
+    background-color: #627AAD;
+    // -moz-transform: scale(1.1) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
+    // -webkit-transform: scale(1.1) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
+    // -o-transform: scale(1.1) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
+    // -ms-transform: scale(1.1) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
+    // transform: scale(1.1) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
+  }
+}
+
+.content {
+  min-height: 300px;
+}
+
+footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: #ccc solid 1px;
+  margin-bottom: 20px;
+}
+
+.search {
+  text-align: center;
+}
+
+img.murfie{
+  height: 50px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+img.rethink{
+  height: 50px;
+}
+
+.hero {
+  text-align: center;
 }

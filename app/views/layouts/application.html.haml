@@ -14,20 +14,24 @@
   %body
     #main{:role => "main"}
       .container
-        .row
-          .span12
-            %h1 Hipster
-            .nav-link
-              - if user_signed_in?
-                = link_to('Logout', signout_path)
-              - else
-                = link_to('Login', signin_path)
-            / - flash.each do |name, msg|
-            /   %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
-            /     %a.close{"data-dismiss" => "alert"} ×
-            /     = msg
-        .row
+        .row.content
           .span12
             = yield
-          %footer
+        .row
+          .span12
+            %footer
+              .row
+                .span2.pull-left
+                  Created by
+                  %br
+                  = link_to "South Pole Steve", "http://www.southpolesteve.com"
+                  - if current_user
+                    %br
+                    Click here to
+                    = link_to "Logout", signout_path
+                .pull-right
+                  = link_to image_tag("echonest.png", :class => 'echonest'), "http://www.theechonest.com/"
+                  = link_to image_tag("murfie.png",:class => 'murfie'), "https://www.murfie.com/"
+                  = link_to image_tag("rethinkmusic.png",:class => 'rethink'), "http://rethink-music.com/"
+
     = javascript_include_tag "application"

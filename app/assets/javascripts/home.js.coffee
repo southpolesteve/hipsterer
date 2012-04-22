@@ -2,5 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+$ ->
+  featureList = new List('friend-list', { page: 35, valueNames: ['name'] })
 
-featureList = new List('friend-list', { valueNames: [ 'name' ] })
+  # $('ul.list a').tooltip()
