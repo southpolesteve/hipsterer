@@ -25,6 +25,6 @@
         %li
           %a{ href: root_path(:friend_id => friend['id']), title: friend['name'],class: 'fbpicture'}
             = image_tag "http://graph.facebook.com/#{friend['id']}/picture", :size => '47x47'
-          .name.hidden
+          .name.hide
             = friend['name']
 
