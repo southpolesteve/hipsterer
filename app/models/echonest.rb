@@ -1,7 +1,7 @@
 class Echonest
   include HTTParty
   base_uri "http://developer.echonest.com/api/v4"
-  default_params :api_key => "ABUMALOOTAJPCMUKU"
+  default_params :api_key => ENV["ECHONEST_API_KEY"]
 
   def self.hottnesss(artist_name)
     response = get("/artist/hotttnesss/", :query => {:name => artist_name })['response']
