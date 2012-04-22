@@ -8,7 +8,7 @@ class Echonest
     if response['artist']
       response['artist']['hotttnesss']
     else
-      nil
+      0
     end
   end
 
@@ -17,7 +17,7 @@ class Echonest
     if response['artist']
       response['artist']['familiarity']
     else
-      nil
+      0
     end
   end
 
