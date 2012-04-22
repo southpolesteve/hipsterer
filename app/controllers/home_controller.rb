@@ -10,8 +10,10 @@ class HomeController < ApplicationController
         end
         @friend = current_user.facebook_friends.select{ |friend| friend['id'] == params[:friend_id]}.first
         @user_likes = current_user.facebook_music_likes
-        @recommended = @friend_likes.select{ |like| 0 < like['familiarity'] && like['familiarity'] < 0.6}
-        @percent = (100 - (avg(@friend_likes)/avg(@user_likes))*100).to_i*2.abs
+        unless @friend_likes.size == 0 || @user_likes == 0
+          @recommended = @friend_likes.select{ |like| 0 < like['familiarity'] && like['familiarity'] < 0.6}
+          @percent = (100 - (avg(@friend_likes)/avg(@user_likes))*100).to_i*2.abs
+        end
       end
     end
   end

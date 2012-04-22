@@ -25,7 +25,7 @@
     .span4.offset4
       %input.search{ placeholder: "Start typing a friend's name"}
   %ul.list
-    - current_user.facebook_friends.drop(400).each do |friend|
+    - current_user.facebook_friends.each do |friend|
       %li
         %a{ href: root_path(:friend_id => friend['id']), title: friend['name'],class: 'fbpicture'}
           = image_tag "http://graph.facebook.com/#{friend['id']}/picture", :size => '45x45'
