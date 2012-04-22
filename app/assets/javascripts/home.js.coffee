@@ -6,7 +6,7 @@ $ ->
   featureList = new List('friend-list', { page: 35, valueNames: ['name'] })
   $('.result-name').each ->
     name = $(this).innerHTML
-    $(this).siblings().first.load("/vinyl?name=" + escape(name))
+    $(this).next().load("/vinyl?name=" + escape(name))
 
 
   # $('ul.list a').tooltip()

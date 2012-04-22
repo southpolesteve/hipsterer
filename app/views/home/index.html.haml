@@ -11,15 +11,18 @@
           - else
             = "#{-@percent}% LESS"
           hipster than you
-        %p
-          #{@friend['name']} likes these obscure bands. Maybe you should start listening to them too?
-          %ul
-            - @recommended.each do |like|
-              %li
-                %span.result-name= "#{like['name']}"
-                (
-                %span.vinyl-result Searching for vinyl...
-                )
+        - if @recommended.empty?
+          %p Better go to the record store and pick up some demos
+        - else
+          %p
+            #{@friend['name']} likes these obscure bands. Maybe you should start listening to them too?
+            %ul
+              - @recommended.each do |like|
+                %li
+                  %span.result-name= "#{like['name']}"
+                  (
+                  %span.vinyl-result Searching for vinyl...
+                  )
 
         = render "facebook"
       - else
