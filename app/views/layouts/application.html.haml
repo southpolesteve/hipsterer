@@ -30,17 +30,22 @@
           .span12
             %footer
               .row
-                .span2.pull-left
-                  Created by
-                  %br
-                  = link_to "South Pole Steve", "http://www.southpolesteve.com"
-                  - if current_user
+                .span-12
+                  .pull-left
+                    = link_to image_tag("echonest.png", :class => 'echonest'), "http://www.theechonest.com/"
+                    = link_to image_tag("murfie.png",:class => 'murfie'), "https://www.murfie.com/"
+                    = link_to image_tag("rethinkmusic.png",:class => 'rethink'), "http://rethink-music.com/"
+                    = link_to image_tag("discogs.png",:class => 'discogs'), "http://www.discogs.com/"
+                .clearfix
+                .span12
+                  %p
                     %br
-                    Click here to
-                    = link_to "Logout", signout_path
-                .pull-right
-                  = link_to image_tag("echonest.png", :class => 'echonest'), "http://www.theechonest.com/"
-                  = link_to image_tag("murfie.png",:class => 'murfie'), "https://www.murfie.com/"
-                  = link_to image_tag("rethinkmusic.png",:class => 'rethink'), "http://rethink-music.com/"
+                    Created by
+                    = link_to "South Pole Steve", "http://www.southpolesteve.com"
+                    - if current_user
+                      %br
+                      Click here to
+                      = link_to "Logout", signout_path
+
 
     = javascript_include_tag "application"
