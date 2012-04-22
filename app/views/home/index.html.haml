@@ -1,4 +1,34 @@
-- if current_user
-  - current_user.facebook.get_connections("me", "music").each do |like|
-    - artist = Artist.find_or_create_by name: like["name"]
-    %p= "#{artist.name} - #{artist.familiarity}"
+- if params[:friend_id]
+  .row
+  - unless @friend_likes.size == 0
+    .row
+      .span7
+        %h2
+          = image_tag "http://graph.facebook.com/#{params[:friend_id]}/picture", :class => 'fbpicture'
+          = "#{@friend['name']} is"
+          - if @percent > 0
+            = "#{@percent}% MORE"
+          - else
+            = "#{@percent}% LESS"
+          hipster than you
+    .row
+      .span7
+        - @recommended.each do |like|
+          %p= "#{like['name']} #{like['familiarity']}"
+  - else
+    .row
+      .span6.offset3
+        %h2 Oh snap! Liking music on Facebook is way too mainstream for #{@friend['name']}. Best pick someone else.
+
+#friend-list
+  .row
+    .span4.offset4
+      %input.search{ placeholder: "Start typing a friend's name"}
+  %ul.list
+    - current_user.facebook_friends.drop(400).each do |friend|
+      %li
+        %a{ href: root_path(:friend_id => friend['id']), title: friend['name'],class: 'fbpicture'}
+          = image_tag "http://graph.facebook.com/#{friend['id']}/picture", :size => '45x45'
+        .name.hidden
+          = friend['name']
+

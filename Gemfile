@@ -41,3 +41,4 @@ gem "simple_form"
 gem "pry-rails"
 gem 'koala'
 gem 'httparty'
+gem 'heroku'

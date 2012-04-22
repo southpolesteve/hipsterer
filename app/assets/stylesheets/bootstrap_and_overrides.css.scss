@@ -2,5 +2,33 @@
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 @import "bootstrap";
-body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+#friend-list ul{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  li {
+    float:left;
+  }
+  a {
+    display:inline-block;
+  }
+}
+
+#friend-list input{
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+h1 {
+  float: left;
+}
+
+.nav-link {
+  padding-top: 5px;
+  float: right;
+}
