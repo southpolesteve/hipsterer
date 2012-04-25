@@ -6,25 +6,25 @@
           = image_tag "http://graph.facebook.com/#{params[:friend_id]}/picture", :class => 'fbpicture'
           = "#{@friend['name']}"
           %br
-          - if @percent > 0
-            = "#{@percent}% MORE"
-          - else
-            = "#{-@percent}% LESS"
-          hipster than you
+          .hipsterness
+            - if @percent > 0
+              = "#{@percent}% MORE"
+            - else
+              = "#{-@percent}% LESS"
+            hipster than you
         - if @recommended.empty?
           %p Better go to the record store and pick up some demos
         - else
-          %p
-            #{@friend['name']} likes these obscure bands. Maybe you should start listening to them too?
-            %ul
-              - @recommended.each do |like|
-                %li
-                  %span.result-name= "#{like['name']}"
-                  (
-                  %span.vinyl-result Searching for vinyl...
-                  )
-
+          %p.center
+            #{@friend['name']} likes these obscure bands. 
+            %br
+            Maybe you should start listening to them too?
+          %p.center
+            - @recommended.each do |like|
+              ="#{like['name']}"
+              %br
         = render "facebook"
+      
       - else
         %h2.lower Oh snap! Liking music on Facebook is way too mainstream for #{@friend['name']}. Best pick someone else.
         = render "facebook"

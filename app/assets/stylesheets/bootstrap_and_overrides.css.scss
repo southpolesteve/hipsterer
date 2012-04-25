@@ -114,16 +114,39 @@ img.discogs{
 
 h1.lower {
   text-align:center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 h2.lower {
   text-align:center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 h1.center {
   text-align: center;
+  width: 100%;
+}
+
+.hipsterness {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h2.center {
+  text-align: center;
+  width: 100%;
+}
+
+h3.center {
+  text-align: center;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+p.center {
+  text-align: center;
+  width: 100%;
 }
 
 .like-box{
@@ -140,6 +163,6 @@ h1.center {
 }
 
 .like-area{
-  margin-top: 50px;
+  margin-top: 10px;
   margin-left: 75px;
 }
