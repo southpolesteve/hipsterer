@@ -5,15 +5,15 @@
         %h2.center
           = image_tag "http://graph.facebook.com/#{params[:friend_id]}/picture", :class => 'fbpicture'
           = "#{@friend['name']}"
-          %br
-          %a.hipsterness{"data-toggle" => "modal", :href => "#myModal"}
-            - if @percent > 0
-              = "#{@percent}% MORE"
-            - else
-              = "#{-@percent}% LESS"
-            hipster than you
+          .hipsterness
+            %a{"data-toggle" => "modal", :href => "#myModal"}
+              - if @percent > 0
+                = "#{@percent}% MORE"
+              - else
+                = "#{-@percent}% LESS"
+              hipster than you
         - if @recommended.empty?
-          %p Better go to the record store and pick up some demos
+          %p.center #{@friend['name']} is so mainstream. They don't listen to any obscure bands
         - else
           %p.center
             #{@friend['name']} likes these obscure bands. 
