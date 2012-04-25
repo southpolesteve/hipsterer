@@ -6,7 +6,7 @@
           = image_tag "http://graph.facebook.com/#{params[:friend_id]}/picture", :class => 'fbpicture'
           = "#{@friend['name']}"
           %br
-          .hipsterness
+          %a.hipsterness{"data-toggle" => "modal", :href => "#myModal"}
             - if @percent > 0
               = "#{@percent}% MORE"
             - else
@@ -42,3 +42,11 @@
           .name.hide
             = friend['name']
 
+
+#myModal.modal.hide.fade
+  .modal-header
+    %button.close{"data-dismiss" => "modal"} ×
+    %h3 How did you get that number?
+  .modal-body
+    %p We use several different metrics to compare how hipster you are compared to your friend. The math is a bit complex, but simply we look at the artists you like, the artists your friend likes, and how long you both have liked each band. We then use data provided by The Echonest to see how obscure the artist is compared to all other artists.  All that data gets fed into our fancy algorithm and out the other end pops the number you see.
+  .modal-footer
